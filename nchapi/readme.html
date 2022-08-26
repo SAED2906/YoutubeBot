@@ -1,0 +1,281 @@
+<html>
+<head>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<title>NCH Unified API Read Me</title>
+<style>
+body {margin: 0; color: #282828; background-color: #fff; font-family: Arial,sans-serif; font-size: 9pt; background-image: url(http://www.nchsoftware.com/images/br.gif); background-position: 0 -200px; background-repeat: no-repeat; }
+td { font-size: 9pt; }
+hr { color: #cccccc; background: #cccccc; border: 0; height: 1px;}
+
+h1 { font-weight: normal; font-size: 14pt; color: #3a3a3a; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; padding-left: 0px;}
+h2 { font-weight: normal; font-size: 11pt; color: #3a3a3a; padding-top: 0px; margin-top: 0px;}
+h3 { font-weight: bold; font-size: 12pt; color: #4a4a4a; padding-bottom: 6px; margin-bottom: 6px;}
+h4 { font-weight: bold; font-size: 9pt; color: #426792; text-decoration: none;}
+h5 { font-weight: bold; font-size: 9pt; color: #505050;}
+
+.fn { padding: 1px 0px 1px 0px; text-valign: center; background: #A5AEB5; background: transparent url("http://www.nchsoftware.com/images/fn.gif") repeat; }
+A.fn { color: #000; text-decoration: none; background: transparent; }
+A:visited.fn { color: #000; text-decoration: none;  }
+A:hover.fn { color: #da1015; text-decoration: underline; }
+
+A { color: #003366; text-decoration: underline }
+A:visited { color: #446680; }
+A:hover { color: #d01216; }
+A:active { color: #996699; }
+
+.pt { font-weight: bold; font-size: 10pt; color: #e34147; text-decoration: none}
+a.pt { font-weight: bold; font-size: 10pt; color: #e34147; text-decoration: none}
+a:visited.pt { color: #e34147; text-decoration: none }
+a:hover.pt { color: #5DB103; text-decoration: underline }
+
+.nv { font-weight: normal; font-size: 8pt; color: #000;}
+a.nv { color: #e34147; text-decoration: none; background: transparent; }
+a:visited.nv { color: #e34147; text-decoration: none }
+a:hover.nv { color: #446680; text-decoration: none }
+
+.redlink { font-weight: bold; font-size: 9pt; color: #e34147;}
+a.redlink { color: #e34147; text-decoration: none; background: transparent; }
+a:visited.redlink { color: #e34147; text-decoration: none }
+a:hover.redlink { color: #446680; text-decoration: none }
+
+.sm { font-weight: normal; font-size: 9pt; color: #446680;}
+A.sm { color: #446680; text-decoration: none; background: transparent; }
+A:visited.sm { color: #446680; text-decoration: none }
+A:hover.sm { color: #da1015; text-decoration: none }
+
+.tsh { font-weight: bold; font-size: 9pt; color: #4a4a4a; background: transparent url("http://www.nchsoftware.com/images/tsh.gif") no-repeat; padding-left: 16px; height: 15px;}
+.ts { font-weight: normal; font-size: 9pt; color: #446680; background: transparent url("http://www.nchsoftware.com/images/ts.gif") no-repeat; padding-left: 16px; height: 15px;}
+A.ts { color: #446680; text-decoration: none; background: transparent; background: transparent url("http://www.nchsoftware.com/images/ts.gif") no-repeat; padding-left: 16px; height: 15px;}
+A:visited.ts { color: #446680; text-decoration: none background: transparent url("http://www.nchsoftware.com/images/ts.gif") no-repeat; padding-left: 16px; height: 15px;}
+A:hover.ts { color: #da1015; text-decoration: none background: transparent url("http://www.nchsoftware.com/images/ts.gif") no-repeat; padding-left: 16px; height: 15px;}
+
+.tsb { font-weight: normal; font-size: 9pt; color: #446680; background: transparent url("http://www.nchsoftware.com/images/tsb.gif") no-repeat; padding-left: 16px; height: 15px;}
+A.tsb { color: #446680; text-decoration: none; background: transparent; background: transparent url("http://www.nchsoftware.com/images/tsb.gif") no-repeat; padding-left: 16px; height: 15px;}
+A:visited.tsb { color: #446680; text-decoration: none background: transparent url("http://www.nchsoftware.com/images/tsb.gif") no-repeat; padding-left: 16px; height: 15px;}
+A:hover.tsb { color: #da1015; text-decoration: none background: transparent url("http://www.nchsoftware.com/images/tsb.gif") no-repeat; padding-left: 16px; height: 15px;}
+
+.sbh { font-weight: bold; padding-top: 1; font-size=8pt; color: #000; border-bottom: #e34147 1px solid; padding-left: 5px; background:#A5AEB5; background: transparent url("http://www.nchsoftware.com/images/fn.gif") repeat; }
+.sb { height: 18px; font-size=8pt; background-color: #EBEFFA; border-left: #d8d8d8 1px solid; padding-left: 4px; border-right: #d8d8d8 1px solid; }
+.sbw { height: 18px; font-size=8pt; background-color: #ffffff; border-left: #d8d8d8 1px solid; padding-left: 4px; border-right: #d8d8d8 1px solid; }
+.sbnh { height: 18px; font-size=8pt; background-color: #EBEFFA; border-left: #d8d8d8 1px solid; border-top: #e0e0e0 1px solid; padding-left: 4px; border-right: #d8d8d8 1px solid; }
+#incn { width: 45px; height: 13px; background-image: url(http://www.nchsoftware.com/images/incn.gif); background-repeat: no-repeat; background-position: 2 0; display: block;}
+a#incn:hover { background-image: url(http://www.nchsoftware.com/images/incnhvr.gif); }
+#button { width: 160px; height: 21px; margin-top: 4px; margin-bottom: 0px; display: block; background-image: url(http://www.nchsoftware.com/images/bn.gif); background-repeat: no-repeat; font-family: Tahoma,sans-serif; font-size: 12px; color: #fff; text-decoration: none; padding-top: 2px; padding-bottom: 0px; text-align: left; text-indent: 14px; font-weight: bold; }
+a#button:hover { background-image: url(http://www.nchsoftware.com/images/br.gif); background-repeat: no-repeat; padding-top: 1px; padding-bottom: 1px; text-decoration: none; }
+
+.faqnav { background:#ffffff; background: transparent url("http://www.nchsoftware.com/images/lines.gif") repeat;}
+</style>
+</head>
+
+
+<body leftmargin=0 topmargin=0><div align=center>
+
+<a name="top"></a>
+<table cellspacing=0 cellpadding=0 border=0 width=100%>
+	<tr><td width=100 cellspacing=0 cellpadding=0 border=0 align=center><a href="http://www.nchsoftware.com/index.html"><img src="http://www.nchsoftware.com/images/logo.gif" alt="NCH Swift Sound Home" border=0></td><td cellspacing=0 cellpadding=0 border=0 valign=top align=right><img height=67 width=426 src="http://www.nchsoftware.com/images/top.gif"></td></tr>
+	<tr class=fn><td></td><td align=right nowrap><a href="http://www.nchsoftware.com/index.html" class=fn>Home</a> | <a href="http://www.nchsoftware.com/software/index.html" class=fn>Products</a> | <a href="http://www.nch.com.au/support/index.html" class=fn>Support</a> | <a href="http://www.nchsoftware.com/general/sitemap.html" class=fn>SiteMap</a>&nbsp;&nbsp;</td></tr>
+	<tr><td valign=top colspan=2><img src="http://www.nchsoftware.com/images/1blue.gif" width=100% height=10></td></tr>
+</table>
+
+<br>
+
+<table width=96% border=0>
+<tr><td>
+
+<h1><font color=#990000>Read Me</font> NCH Unified API </h1>
+<p>
+
+This is the "readme.html" documentation supplied in the <a href="http://www.nchsoftware.com/api/nchapi.zip">nchapi.zip</a> archive. It is designed to be a supplement source of information additional to that available from our website: <a href="http://www.nchsoftware.com/api/index.html">www.nchsoftware.com/api</a>.
+
+<p>
+<hr>
+
+<a name="Files"></a>
+<h4>Included Files</h4>
+
+There should have been several files included along with this documentation. The purpose of these files follows:
+<ul>
+<li><i>nchapi.dll</i> - This is the Dynamic Linked Library (DLL), Component Object Model (COM), and Java Native Interface (JNI) version of the Unified API. To use the DLL you must first locate and load this file within your program and then retrieve the address of the "NCHAPISendCommand" exported function. For COM you must first register this file within your system before you are able to utilize it. For JNI please refer to the specific <a href="#JNI">Java Documentation</a> below. See the source code of the C++, VB&amp;VBS, and Java examples for more information on how to utilize the functionality of this file.
+<li><i>nchapi.exe</i> - This is the Command Line Interface (CLI) version. Simply call this application from your system's command line prompt/shell/window, or from any shortcut or task scheduler/management window. The output of this call will be the return value and result string separated by a colon (':'). See the source code of the CLI example for more information on how to utilize the functionality of this file.
+<li><i>NCHAPIClientLib.dll</i> - This is the Microsoft .NET Framework version. Please be aware that this file is only a wrapper for <i>nchapi.dll</i>, and that to use this functionality you must first add <i>NCHAPIClientLib.dll</i> (.NET) as reference to your project and then put <i>nchapi.dll</i> (native) in your program's directory or in any directory from %PATH%. Both files must be present when distributing your program. See the source code of the C# and the VB.NET examples for more information on how to utilize the functionality of this file.
+<li><i>server.exe</i> - This is a simple test server application which allows you to trial your (and the provided sample) code with the different communication methods available though the Unified API. The test server is identified by the API Key "APITestServer" and responds to the following two commands:
+<ul>
+<li><b>-showmessagebox</b> - Displays a message box and takes two arguments: the message box text, and the message box caption.
+<li><b>-testapi</b> - A generic command which takes one argument.
+</ul>
+</ul>
+<b>Note:</b> All NCH software products respond to the common "-testapi" command, which if called correctly returns "API Test OK" followed by its first argument. If no argument is specified then it will return "API Test Fail". This allows you to configure and test your API system before worrying about the syntax for specific commands and arguments.
+
+<p>
+<img src="http://www.nchsoftware.com/images/arrow_top.gif">&nbsp;&nbsp;<a href="#top" class=sm>Back to top</a>
+<hr>
+
+<a name="Directories"></a>
+<h4>Included Directories</h4>
+
+There should be several directories also included which contain all the Visual Studio, header and source files (where appropriate) required for the provided working examples. The directories/examples included are:
+<ul>
+<li><i>C#</i> - Which uses <i>NCHAPIClientLib.dll</i> and <i>nchapi.dll</i> (Microsoft .NET Framework).
+<li><i>C++</i> - Which uses <i>nchapi.dll</i> (Dynamic Linked Library).
+<li><i>CLI</i> - Which uses <i>nchapi.exe</i> (Command Line Interface).
+<li><i>Java</i> - Which uses <i>nchapi.dll</i> (Java Native Interface).
+<li><i>VB&amp;VBS</i> - Which uses <i>nchapi.dll</i> (Component Object Model &amp; ActiveX).
+<li><i>VB.NET</i> - Which uses <i>NCHAPIClientLib.dll</i> and <i>nchapi.dll</i> (Microsoft .NET Framework).
+</ul>
+
+These examples will <u>not</u> function correctly until the appropriate Unified API file (dependent on which API method) has been copied to the correct folder or correctly registered.
+
+<p>
+<img src="http://www.nchsoftware.com/images/arrow_top.gif">&nbsp;&nbsp;<a href="#top" class=sm>Back to top</a>
+<hr>
+
+<a name="Specification"></a>
+<h4>API Specification</h4>
+
+All commands and arguments are passed to the Unified API as an array of strings, with the number of these also sent. Commands are all preceded by a dash ('-') and are in lowercase with no spaces. Arguments can contain any characters necessary. Please note that both commands and arguments are case sensitive! Once the command has been executed by the program the API will respond by returning a number and a result string. The number is the return value of the command just sent and follows this guideline:
+<ul>
+<li>0 = Success,
+<li>-1 = Error: No/Unknown Command Received,
+<li>-2 = Error: Program Not Running.
+</ul>
+The result string contains any information the program wishes to return, and has a maximum length of 8192 characters.
+
+<p>
+<img src="http://www.nchsoftware.com/images/arrow_top.gif">&nbsp;&nbsp;<a href="#top" class=sm>Back to top</a>
+<hr>
+
+<a name="JNI"></a>
+<h3>Java Documentation</h3>
+
+There are several methods for how to use the NCH Unified API's capability in your Java code. The options are:
+<ol>
+<li>Use the provided NCHAPIClient class as the interface through which the NCH Unified API is called.
+<li>Write your own class to interact with the Unified API.
+</ol>
+
+<h5>Important note regarding class and package naming</h5>
+
+As a result of the style in which Java code can interface with native DLL code, the package name and class name of the class that calls the DLL code is hard-coded into the DLL. Thus, the only class that can call the JNI method in <i>nchapi.dll</i> is "nch.api.NCHAPIClient". If you choose to go down the route specified in #2 above, be aware that you must name your own class this.
+<p>
+
+<h4>1) Using the provided NCHAPIClient class</h4>
+
+The provided class is designed to make interaction with the Unified API DLL as painless as possible. You will need to compile the class on your own and include it in your JARs. There are two constructors provided in the class. You should use one or the other, depending on where you want to place the <i>nchapi.dll</i>.
+<p>
+
+<h5>1.1) NCHAPIClient() Constructor</h5>
+
+This constructor will look for the <i>nchapi.dll</i> in a series of directories. If you have not defined a java.library.path environment variable on the command-line to java.exe (e.g., "-Djava.library.path=c:\dlls\"), then it will look through the directories in the computer's %PATH%. Java will use the first copy of <i>nchapi.dll</i> it finds.
+<p>
+
+<h5>1.1.1) Relying on %PATH%</h5>
+
+If you allow Java to search through the %PATH% to find the <i>nchapi.dll</i>, it is recommended that you place the dll in c:\[Windows Directory]\System32, as this directory is included in the %PATH% environment variable by default.
+<p>
+
+<h5>1.1.2) Relying on java.library.path</h5>
+
+If you specify a directory in which <i>nchapi.dll</i> is placed and use the -Djava.library.path= statement, you can put the <i>nchapi.dll</i> in any directory on the system, even one which is not included in the %PATH% environment variable, and change the location easily at program start-up time.
+<p>
+
+<h5>1.2) NCHAPIClient(String pathToDLL) Constructor</h5>
+
+Like in 1.1.2, this constructor will allow you to place the dll in any location on the computer. Pass into this constructor the directory where your software can find <i>nchapi.dll</i>. Use this constructor if you want to place the dll in a directory that is not in the %PATH% but you do not want to specify it on the command-line. For instance, you might use this constructor if you want to save the DLL location in a configuration file and read it at runtime.
+<p>
+
+<h5>1.3) Calling the Unified API</h5>
+
+Calling the API is done via the sendCommand() method. You should consult the documentation for the NCH software application you wish to communicate with for the exact parameters you need to use. The first argument to sendCommand() is the name of the application you wish to call. The second argument is a String array, each element of which is a parameter to the API call. This method will return an integer value that can be used to determine the success or failure of the API call. See the NCHAPI_* constants in the class -- these are the possible return values. In a nutshell, the constant values mean:
+<ul>
+<li>NCHAPI_SUCCESS -- the API call worked.
+<li>NCHAPI_ERROR -- the API call failed.
+<li>NCHAPI_CODE_NOTFOUND -- the program to which the API call was to be sent was not running.
+</ul>
+
+<h5>1.4) The Verbose Result String</h5>
+
+In addition to the integer result returned by sendCommand(), the API returns a more verbose string that can be used for enhanced debugging. The exact format of this code depends on the API call that you made. This result string is basically a human-readable result that tells exactly what happened (for example, a call may get an integer result of NCHAPI_ERROR and a result string of "Recording could not be started because the software is currently playing another MP3."). This result string can be returned from the NCHAPIClient class after sendCommand() is called via a call to getResultString().
+<p>
+
+<h4>2) Writing your own NCHAPIClient Class</h4>
+
+Are you REALLY sure you want to write your own version of the class? In 99% of cases, you will be simply reproducing the class we provide you. If you choose to not use the NCHAPIClient class, there are several steps you will need to account for and things to know that are handled by the client class. Please read the following and be sure you understand ALL OF IT COMPLETELY before continuing.
+
+<h5>2.1) Package Name and Location</h5>
+
+As mentioned above, due to limitations in JNI, you **MUST** name the class that calls the code in <i>nchapi.dll</i> "NCHAPIClient" and it **MUST** be located in a package named "nch.api". There is no way around this.
+
+<h5>2.2) Loading the DLL</h5>
+
+There are two ways to load a DLL with Java:
+<ul>
+<li>System.load(...);
+<li>System.loadLibrary(...);
+</ul>
+
+<h5>2.2.1) System.load(...);</h5>
+
+This load is used when you want to specify the path to the DLL to load. For example:
+<pre>
+   System.load("c:\dlls\nchapi.dll");
+</pre>
+
+<h5>2.2.2) System.loadLibrary(...);</h5>
+
+This load is used when you want the JVM to search %PATH% and java.library.path (see 1.1) for the DLL to load.  If you use this style, you must use the following line of code to load the <i>nchapi.dll</i>:
+<pre>
+   System.loadLibrary("nchapi");
+</pre>
+
+Note that there is no ".dll" in the above. This is the proper convention.
+<p>
+
+<h5>2.3) Declaring the Native Method</h5>
+
+You must also prepare the JVM to know that it needs to call a native method. Do this by declaring the method that you will be connecting to in the .dll. Use this piece of code:
+<pre>
+   private static native int NCHAPISendCommand(String szServerKey, int nArgs, String[] szArgs, String[] szResultString);
+</pre>
+
+<h5>2.4) Calling the Native Method</h5>
+
+To call the native method, you need to pass in more arguments than you do in using our NCHAPIClient class. Here are the arguments to pass in and what they mean:
+<ul>
+<li><b>szServerKey</b> - This is the name of the program that you are calling (the same as argument #1 in NCHAPIClient.sendCommand().
+
+<li><b>nArgs</b> - This is the number of arguments in the argument array.
+
+<li><b>szArgs</b> - This is a String array containing the arguments to the DLL code. This is the same as argument #2 in NCHAPIClient.sendCommand().
+
+<li><b>szResultString</b> - This is how the DLL will return the verbose result String to your calling code. This argument MUST be a *1-element, EMPTY* String array. It will be filled with a value in the DLL.
+</ul>
+
+<p>
+<img src="http://www.nchsoftware.com/images/arrow_top.gif">&nbsp;&nbsp;<a href="#top" class=sm>Back to top</a>
+<hr>
+
+<h3>Other Information</h3>
+If you have problems writing your application, please see <a href="http://www.nch.com.au/support/index.html">www.nch.com.au/support</a>.
+<p>
+<img src="http://www.nchsoftware.com/images/arrow_top.gif">&nbsp;&nbsp;<a href="#top" class=sm>Back to top</a>
+<p>
+
+</td></tr>
+</table>
+
+<table cellspacing=0 cellpadding=0 width=100% border=0>
+
+  <tr>
+    <td colspan=2><img src="http://www.nchsoftware.com/images/3blue.gif" width=100% height=10></td>
+  </tr>
+  <tr class=fn>
+    <tr class=fn><td align=left>&nbsp;&nbsp;&copy; NCH Software</td>
+    <td align=right><a href="#top" class=fn>Top</a> | <a href="http://www.nchsoftware.com/index.html" class=fn>Home</a>&nbsp;&nbsp;</td>
+
+  </tr>
+</table>
+
+</div>
+</body>
+</html>
+
